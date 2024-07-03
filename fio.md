@@ -22,9 +22,9 @@ fio --name=write_test --ioengine=sync --rw=write --bs=4k --numjobs=1 --size=1G -
 - `--name=write_test`: Name of the test.
 - `--ioengine=sync`: Synchronous I/O engine.
 - `--rw=write`: Write test.
-- `--bs=4k`: Block size of 4KB.
+- `--bs=64k`: Block size of 64KB.
 - `--numjobs=1`: Single job.
-- `--size=1G`: Total size of 1GB.
+- `--size=8G`: Total size of 8GB.
 - `--runtime=60`: Run for 60 seconds.
 - `--group_reporting`: Group reporting of results.
 
@@ -36,10 +36,10 @@ You can create a script to run more detailed tests. Save the following content t
 #!/bin/bash
 
 # Sequential Read and Write Test
-fio --name=seq_read_write --ioengine=sync --rw=readwrite --bs=128k --numjobs=1 --size=1G --runtime=60 --group_reporting
+fio --name=seq_read_write --ioengine=sync --rw=readwrite --bs=128k --numjobs=1 --size=8G --runtime=60 --group_reporting
 
 # Random Read and Write Test
-fio --name=rand_read_write --ioengine=sync --rw=randrw --bs=4k --numjobs=4 --size=1G --runtime=60 --group_reporting
+fio --name=rand_read_write --ioengine=sync --rw=randrw --bs=64k --numjobs=4 --size=8G --runtime=60 --group_reporting
 ```
 
 ## Run the Script
